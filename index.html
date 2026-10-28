@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f3fb">
+  <meta name="description" content="SkinMate, sistem pakar untuk mengenali kebutuhan kulit dan menemukan referensi perawatan skincare.">
+  <title>SkinMate — Sistem Pakar Skincare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="SkinMate beranda"><span class="brand-mark" title="S melambangkan SkinMate; bentuk daun melambangkan perawatan kulit yang lembut dan bertumbuh">S</span><span>skinmate</span></a>
+      <span class="topbar-note">SISTEM PAKAR PERAWATAN KULIT</span>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">KENALI KULITMU LEBIH BAIK</p>
+        <h1>Kenali kulitmu, temukan perawatan yang <em>lebih sesuai.</em></h1>
+        <p class="hero-description">Jawab beberapa pertanyaan singkat untuk mengenali kebutuhan kulit dan melihat saran perawatan awal yang bisa kamu pertimbangkan.</p>
+        <div class="hero-meta"><span class="meta-line"></span><span>5 langkah singkat</span><span class="meta-dot">·</span><span>Hasil dipersonalisasi</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-disc"><div class="art-leaf leaf-one"></div><div class="art-leaf leaf-two"></div><div class="art-center"></div></div>
+        <span class="art-caption">SKINCARE, SIMPLIFIED</span>
+      </div>
+    </section>
+
+    <section class="wizard card" aria-labelledby="wizardTitle">
+      <div class="wizard-topline"><div><p class="eyebrow">KONSULTASI SINGKAT</p><h2 id="wizardTitle">Mulai dari kebutuhanmu</h2></div><span class="step-count" id="stepCount">01 / 05</span></div>
+      <div class="progress-track" aria-label="Progres formulir"><span id="progressBar"></span></div>
+      <div class="step-labels"><span class="step-label active" data-step-label="0">Profil</span><span class="step-label" data-step-label="1">Jenis kulit</span><span class="step-label" data-step-label="2">Keluhan</span><span class="step-label" data-step-label="3">Sensitivitas</span><span class="step-label" data-step-label="4">Gaya hidup</span></div>
+
+      <form id="skinForm" novalidate>
+        <div class="wizard-page active" data-page="0">
+          <p class="page-kicker">LANGKAH 01</p><h3>Kenalan dulu, yuk.</h3><p class="page-description">Nama, usia, dan kondisi khusus membantu menyesuaikan kandungan agar lebih relevan dan aman untukmu.</p>
+          <div class="form-row">
+            <div class="form-group name-field"><label for="nama">Nama panggilan</label><input type="text" id="nama" name="nama" placeholder="Masukkan nama panggilan" autocomplete="given-name" maxlength="60"><span class="field-hint">Contoh: Aurellie</span></div>
+            <div class="form-group age-field"><label for="usia">Usia (tahun)</label><input type="number" id="usia" name="usia" placeholder="Contoh: 18" inputmode="numeric" min="10" max="99"><span class="field-hint">Kebutuhan kulit berbeda di tiap rentang usia</span></div>
+          </div>
+          <fieldset class="field-set">
+            <legend>Jenis kelamin</legend>
+            <div class="choice-group three"><label class="choice"><input type="radio" name="gender" value="Perempuan"><strong>Perempuan</strong></label><label class="choice"><input type="radio" name="gender" value="Laki-laki"><strong>Laki-laki</strong></label><label class="choice"><input type="radio" name="gender" value="Tidak disebutkan"><strong>Memilih tidak menjawab</strong></label></div>
+          </fieldset>
+          <fieldset class="field-set" id="kondisiGroup" hidden>
+            <legend>Kondisi khusus</legend>
+            <p class="field-help">Dipakai untuk menyaring bahan yang tidak dianjurkan saat hamil atau menyusui (misalnya retinoid).</p>
+            <div class="choice-group"><label class="choice"><input type="radio" name="kondisi" value="Tidak ada"><strong>Tidak ada</strong></label><label class="choice"><input type="radio" name="kondisi" value="Hamil"><strong>Sedang hamil</strong></label><label class="choice"><input type="radio" name="kondisi" value="Menyusui"><strong>Sedang menyusui</strong></label><label class="choice"><input type="radio" name="kondisi" value="Program hamil"><strong>Program hamil</strong></label></div>
+          </fieldset>
+        </div>
+
+        <div class="wizard-page" data-page="1" hidden>
+          <p class="page-kicker">LANGKAH 02</p><h3>Bagaimana karakter kulitmu?</h3><p class="page-description">Pilih berdasarkan kondisi yang paling sering kamu rasakan. Foto hanya sebagai referensi visual, bukan penentu diagnosis.</p>
+          <div class="skin-options" role="radiogroup" aria-label="Pilih jenis kulit">
+            <button type="button" class="skin-option" data-skin="Berminyak" aria-pressed="false"><img class="skin-photo oily" src="images/oily-skin.jpg" alt="Foto close-up kulit wajah dengan kilap alami sebagai referensi kulit berminyak" loading="lazy"><strong>Berminyak</strong><small>Wajah cepat mengilap, pori tampak jelas</small></button>
+            <button type="button" class="skin-option" data-skin="Kering" aria-pressed="false"><img class="skin-photo dry" src="images/dry-skin.jpg" alt="Foto close-up wajah sebagai referensi tekstur kulit kering" loading="lazy"><strong>Kering</strong><small>Terasa tertarik, kasar, atau bersisik</small></button>
+            <button type="button" class="skin-option" data-skin="Kombinasi" aria-pressed="false"><img class="skin-photo combo" src="images/oily-skin.jpg" alt="Tekstur kulit dengan pori lebih terlihat sebagai salah satu referensi area T-zone kulit kombinasi" loading="lazy"><strong>Kombinasi</strong><small>T-zone berminyak, area pipi lebih kering</small></button>
+            <button type="button" class="skin-option" data-skin="Sensitif" aria-pressed="false"><img class="skin-photo sensitive" src="images/sensitive-skin.jpg" alt="Foto perawatan wajah sebagai referensi untuk kulit sensitif" loading="lazy"><strong>Sensitif</strong><small>Mudah kemerahan atau bereaksi terhadap produk</small></button>
+          </div>
+          <input type="hidden" id="jenisKulit" name="jenisKulit" value="">
+        </div>
+
+        <div class="wizard-page" data-page="2" hidden>
+          <p class="page-kicker">LANGKAH 03</p><h3>Apa yang ingin kamu atasi?</h3><p class="page-description">Pilih keluhan utama agar sistem dapat menampilkan analisis yang relevan.</p>
+          <div class="form-group"><label for="masalah">Keluhan utama</label><select id="masalah" name="masalah" disabled><option value="">Pilih jenis kulit terlebih dahulu</option></select></div>
+          <fieldset class="field-set" id="jerawatGroup" hidden>
+            <legend>Seperti apa jerawatmu?</legend>
+            <p class="field-help">Tipe jerawat menentukan bahan yang tepat. Pilih yang paling mendekati kondisimu.</p>
+            <div class="choice-group stack"><label class="choice"><input type="radio" name="tipeJerawat" value="komedonal"><strong>Jerawat pasir (komedonal)</strong><small>Bintik kecil kasar seperti pasir atau komedo, biasanya tidak nyeri dan tidak merah</small></label><label class="choice"><input type="radio" name="tipeJerawat" value="papula"><strong>Papula / pustula (meradang)</strong><small>Benjolan kecil kemerahan, kadang ada titik putih/nanah, terasa agak nyeri</small></label><label class="choice"><input type="radio" name="tipeJerawat" value="kistik"><strong>Jerawat batu (kistik)</strong><small>Benjolan besar, keras, dalam di bawah kulit, nyeri, bertahan berminggu-minggu</small></label><label class="choice"><input type="radio" name="tipeJerawat" value="belum"><strong>Belum yakin</strong><small>Sistem memakai rekomendasi umum untuk jerawat</small></label></div>
+          </fieldset>
+        </div>
+
+        <div class="wizard-page" data-page="3" hidden>
+          <p class="page-kicker">LANGKAH 04</p><h3>Seberapa sensitif kulitmu?</h3><p class="page-description">Centang semua yang pernah kamu alami. Ini menentukan seberapa lembut dan bertahap rekomendasinya.</p>
+          <fieldset class="field-set">
+            <legend>Gejala sensitivitas</legend>
+            <div class="choice-group stack" id="gejalaGroup"><label class="choice"><input type="checkbox" name="gejala" value="merah"><strong>Mudah memerah</strong><small>Wajah cepat kemerahan setelah cuci muka, tergesek, atau berganti cuaca</small></label><label class="choice"><input type="checkbox" name="gejala" value="panas"><strong>Perih saat terkena panas</strong><small>Terasa perih atau panas saat terkena matahari, air hangat, atau ruangan panas</small></label><label class="choice"><input type="checkbox" name="gejala" value="gatal"><strong>Gatal saat mencoba produk baru</strong><small>Muncul gatal atau bentol kecil setelah memakai produk yang belum pernah dicoba</small></label><label class="choice"><input type="checkbox" name="gejala" value="perih"><strong>Perih saat memakai skincare</strong><small>Terasa menyengat atau perih ketika produk dioleskan</small></label><label class="choice"><input type="checkbox" name="gejala" value="none"><strong>Tidak ada gejala di atas</strong><small>Kulit umumnya nyaman terhadap produk dan cuaca</small></label></div>
+          </fieldset>
+        </div>
+
+        <div class="wizard-page" data-page="4" hidden>
+          <p class="page-kicker">LANGKAH 05</p><h3>Bagaimana gaya hidupmu?</h3><p class="page-description">Aktivitas dan lingkungan memengaruhi perlindungan matahari dan cara membersihkan wajah.</p>
+          <fieldset class="field-set">
+            <legend>Aktivitas harian</legend>
+            <div class="choice-group three"><label class="choice"><input type="radio" name="aktivitas" value="Dalam ruangan"><strong>Dominan dalam ruangan</strong><small>Kantor, kampus, atau rumah</small></label><label class="choice"><input type="radio" name="aktivitas" value="Campuran"><strong>Campuran</strong><small>Sebagian dalam, sebagian luar ruangan</small></label><label class="choice"><input type="radio" name="aktivitas" value="Luar ruangan"><strong>Dominan luar ruangan</strong><small>Sering terkena matahari langsung</small></label></div>
+          </fieldset>
+          <fieldset class="field-set">
+            <legend>Penggunaan makeup</legend>
+            <div class="choice-group three"><label class="choice"><input type="radio" name="makeup" value="Jarang"><strong>Jarang / tidak pakai</strong></label><label class="choice"><input type="radio" name="makeup" value="Kadang"><strong>Beberapa kali seminggu</strong></label><label class="choice"><input type="radio" name="makeup" value="Setiap hari"><strong>Hampir setiap hari</strong></label></div>
+          </fieldset>
+          <fieldset class="field-set">
+            <legend>Paparan polusi</legend>
+            <div class="choice-group three"><label class="choice"><input type="radio" name="polusi" value="Rendah"><strong>Rendah</strong><small>Area hijau, udara cenderung bersih</small></label><label class="choice"><input type="radio" name="polusi" value="Sedang"><strong>Sedang</strong><small>Perkotaan, lalu lintas sesekali</small></label><label class="choice"><input type="radio" name="polusi" value="Tinggi"><strong>Tinggi</strong><small>Macet padat, kawasan industri, banyak asap/debu</small></label></div>
+          </fieldset>
+          <div class="privacy-note"><span class="note-rule"></span><p>Hasil ini merupakan informasi awal berdasarkan basis pengetahuan sistem, bukan diagnosis medis.</p></div>
+        </div>
+
+        <p id="errorMessage" class="error-message" role="alert" hidden></p>
+        <div class="wizard-actions"><button type="button" id="backBtn" class="secondary-btn" hidden>Kembali</button><span class="action-spacer"></span><button type="button" id="nextBtn" class="primary-btn">Lanjutkan <span aria-hidden="true">→</span></button><button type="submit" id="analisisBtn" class="primary-btn" hidden>Lihat hasil analisis <span aria-hidden="true">→</span></button></div>
+      </form>
+    </section>
+
+    <section id="hasil" class="results hidden" aria-live="polite">
+      <div class="results-heading"><p class="eyebrow">RINGKASAN PERSONAL</p><h2>Hasil analisis kulit</h2><p>Berikut rangkuman awal berdasarkan jawaban yang kamu berikan, <strong id="hasilNama">-</strong>.</p></div>
+      <div id="alertList" class="alert-list"></div>
+      <div class="card result-summary"><div id="summaryGrid" class="summary-grid"></div></div>
+      <div class="card result-card"><div class="result-card-heading"><span class="result-index">01</span><div><h3>Memahami kondisi kulit</h3><p>Gambaran dari basis pengetahuan sistem</p></div></div><p id="hasilAnalisis" class="analysis-text">-</p></div>
+      <div class="card result-card"><div class="result-card-heading"><span class="result-index">02</span><div><h3>Penyesuaian untuk profilmu</h3><p>Usia, kondisi khusus, sensitivitas, dan gaya hidup</p></div></div><div id="tipList" class="tip-list"></div></div>
+      <div class="card result-card"><div class="result-card-heading"><span class="result-index">03</span><div><h3>Kandungan yang dapat dipertimbangkan</h3><p>Sudah disaring sesuai profilmu</p></div></div><div id="kandunganList" class="ingredient-grid"></div></div>
+      <div class="card result-card" id="ditundaCard" hidden><div class="result-card-heading"><span class="result-index">04</span><div><h3>Sebaiknya dihindari / ditunda</h3><p>Bahan yang disaring karena profilmu</p></div></div><div id="ditundaList" class="avoid-list"></div></div>
+      <div class="card result-card"><div class="result-card-heading"><span class="result-index" id="produkIndex">05</span><div><h3>Rekomendasi brand &amp; produk</h3><p>Contoh pilihan berdasarkan kandungan yang disarankan</p></div></div><div id="produkList" class="product-list"></div><p class="disclaimer">Brand dan produk di atas hanya contoh untuk ditelusuri, bukan endorsement atau jaminan hasil. Kecocokan kulit dapat berbeda pada tiap orang, bahkan untuk produk dari merek yang sama. Periksa daftar bahan, perkenalkan satu produk baru pada satu waktu, dan lakukan patch test terlebih dahulu.</p><p class="disclaimer" id="hamilDisclaimer" hidden>Selama hamil atau menyusui, konfirmasikan setiap produk dan bahan aktif kepada dokter kandungan atau dokter kulit sebelum digunakan.</p></div>
+      <div class="result-footer"><p>Jika keluhan menetap atau memburuk, pertimbangkan konsultasi dengan dokter kulit.</p><button id="ulangBtn" class="secondary-btn">Ulangi konsultasi</button></div>
+    </section>
+
+    <footer class="site-footer"><span>© 2026 SkinMate. All rights reserved.</span><span>SkinMate · Sistem Pakar Skincare</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
